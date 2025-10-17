@@ -1,16 +1,23 @@
 using UnityEngine;
-
+using Unity.Robotics.ROSTCPConnector;
+using BallMsg = RosMessageTypes.RereDaisha.BallPositionArrayMsg;
+using RosMessageTypes.Std;
 public class Publisher : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private ROSConnection ros;
+
+    // 初期化時に呼ばれる
     void Start()
     {
-        
+        // ROSコネクションへのパブリッシャーの登録
+        ros = ROSConnection.instance;
+        ros.RegisterPublisher<Int32Msg>("test");
     }
 
-    // Update is called once per frame
-    void Update()
+    // フレーム毎に呼ばれる
+    void FixedUpdate()
     {
-        
+        Int32Msg txdata = new Int32Msg(0);
+        ros.Send("test", txdata);
     }
 }
