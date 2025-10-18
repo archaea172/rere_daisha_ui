@@ -18,6 +18,6 @@ public class Publisher : MonoBehaviour
     void FixedUpdate()
     {
         Int32Msg txdata = new Int32Msg(0);
-        ros.Send("test", txdata);
+        ros.Publish("test", txdata);
     }
 }
