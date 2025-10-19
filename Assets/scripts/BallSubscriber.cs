@@ -13,7 +13,6 @@ public class BallSubscriber : MonoBehaviour
     void Start()
     {
         ROSConnection.GetOrCreateInstance().Subscribe<BallPositionArrayMsg>("ball_position_yolo", Callback);
-        
     }
 
     void Callback(BallPositionArrayMsg rxdata)
