@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 769943214}
   - component: {fileID: 769943213}
   m_Layer: 5
-  m_Name: grid
+  m_Name: yologrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,7 +421,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 502.2, y: 500}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769943213
 MonoBehaviour:
