@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Robotics.ROSTCPConnector;
 using BallPositionArrayMsg = RosMessageTypes.RereDaisha.BallPositionArrayMsg;
-
+using UnityEngine.UI;
 public class BallSubscriber : MonoBehaviour
 {
     public GameObject ballPrefab;
@@ -18,8 +18,8 @@ public class BallSubscriber : MonoBehaviour
 
     void Callback(BallPositionArrayMsg rxdata)
     {
-        Debug.Log($"Received {rxdata.balls.Length} balls.");
-        
+        Color[] labels = { Color.blue, Color.red, Color.yellow };
+
         foreach (var point in activePoints)
         {
             Destroy(point);
@@ -30,9 +30,11 @@ public class BallSubscriber : MonoBehaviour
         {
             GameObject newBall = Instantiate(ballPrefab, canvasRectTransform);
 
+            Image ballImage = newBall.GetComponent<Image>();
+            ballImage.color = labels[ball.class_id];
             RectTransform ballRect = newBall.GetComponent<RectTransform>();
-            float posX = (float)ball.position.x;
-            float posY = (float)ball.position.y;
+            float posX = (float)ball.position.x*500;
+            float posY = (float)ball.position.y*500;
 
             float CenterX = 502.2F;
             float CenterY = 500F;

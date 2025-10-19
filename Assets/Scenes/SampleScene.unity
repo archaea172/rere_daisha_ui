@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc0c5eca77b917e68078e71f41fc356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 8781010012977062404, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
+  canvasRectTransform: {fileID: 769943212}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +739,10 @@ PrefabInstance:
     - target: {fileID: 8781010012977062404, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
       propertyPath: m_Name
       value: BallPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781010012977062404, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
