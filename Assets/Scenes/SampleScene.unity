@@ -204,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 329676029}
   - component: {fileID: 329676030}
+  - component: {fileID: 329676031}
   m_Layer: 0
   m_Name: Ros2Component
   m_TagString: Untagged
@@ -240,6 +241,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 8781010012977062404, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
   canvasRectTransform: {fileID: 769943212}
+--- !u!114 &329676031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329676026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe7f8465bd798cc8b4eb265746a95bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 8781010012977062404, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
+  canvasRectTransform: {fileID: 160067531}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
