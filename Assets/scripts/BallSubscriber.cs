@@ -19,6 +19,8 @@ public class BallSubscriber : MonoBehaviour
     void Callback(BallPositionArrayMsg rxdata)
     {
         Color[] labels = { Color.blue, Color.red, Color.yellow };
+        float grid_weight = 800F;
+        float grid_height = 800F;
 
         foreach (var point in activePoints)
         {
@@ -33,11 +35,11 @@ public class BallSubscriber : MonoBehaviour
             Image ballImage = newBall.GetComponent<Image>();
             ballImage.color = labels[ball.class_id];
             RectTransform ballRect = newBall.GetComponent<RectTransform>();
-            float posX = (float)ball.position.x*500;
-            float posY = (float)ball.position.y*500;
+            float posX = (float)ball.position.x*grid_weight/2;
+            float posY = (float)ball.position.y*grid_height/2;
 
-            float CenterX = 502.2F;
-            float CenterY = 500F;
+            float CenterX = grid_weight/2;
+            float CenterY = grid_height/2;
             ballRect.anchoredPosition = new Vector2(posX + CenterX, posY + CenterY);
             activePoints.Add(newBall);
         }
