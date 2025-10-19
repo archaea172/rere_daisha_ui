@@ -1086,6 +1086,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6739478004629078278, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.93934673
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739478004629078278, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739478004629078278, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.93934673
+      objectReference: {fileID: 0}
     - target: {fileID: 8781010012977062404, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
       propertyPath: m_Name
       value: BallPoint
