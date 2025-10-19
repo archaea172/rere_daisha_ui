@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class RansacSubscriber : MonoBehaviour
 {
+    public GameObject ballPrefab;
+    public RectTransform canvasRectTransform;
+    private List<GameObject> activePoints = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
