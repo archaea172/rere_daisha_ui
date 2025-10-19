@@ -10,7 +10,7 @@ public class Publisher : MonoBehaviour
     void Start()
     {
         // ROSコネクションへのパブリッシャーの登録
-        ros = ROSConnection.instance;
+        ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<Int32Msg>("test");
     }
 

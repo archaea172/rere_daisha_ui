@@ -1,18 +1,21 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Robotics.ROSTCPConnector;
-using RosMessageTypes.RereDaisha;
+using BallPositionArrayMsg = RosMessageTypes.RereDaisha.BallPositionArrayMsg;
 
 public class BallSubscriber : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ROSConnection.GetOrCreateInstance().Subscribe<BallArrayMsg>("ball_array_topic", Callback);
+        Debug.Log("start!!");
+        ROSConnection.GetOrCreateInstance().Subscribe<BallPositionArrayMsg>("ball_position_yolo", Callback);
+        Debug.Log("start");
     }
 
-    // Update is called once per frame
-    void Callback(BallArrayMsg rxdata)
+    void Callback(BallPositionArrayMsg rxdata)
     {
-        Debug.Log($"Received {message.balls.Length} balls.");
+        Debug.Log($"Received {rxdata.balls.Length} balls.");
     }
 }

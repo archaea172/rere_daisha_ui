@@ -10,7 +10,7 @@ public class Subscriber : MonoBehaviour
 
     void Start()
     {
-        ROSConnection.instance.Subscribe<Int32Msg>("test", Callback);
+        ROSConnection.GetOrCreateInstance().Subscribe<Int32Msg>("test", Callback);
     }
 
     void Callback(Int32Msg rxdata)
