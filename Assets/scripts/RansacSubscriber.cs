@@ -13,7 +13,7 @@ public class RansacSubscriber : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ROSConnection.GetOrCreateInstance().Subscribe<PointCloudMsg>("ball_position_ransac", Callback);
+        ROSConnection.GetOrCreateInstance().Subscribe<PointCloudMsg>("/ldlidar_node/ball_position_ransac", Callback);
     }
     void Callback(PointCloudMsg rxdata)
     {
