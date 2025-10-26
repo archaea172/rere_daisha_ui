@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class RansacSubscriber : MonoBehaviour
 {
+    public GameObject ballPrefab;
     public RectTransform ballMarker;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +17,7 @@ public class RansacSubscriber : MonoBehaviour
     }
     void Callback(BallPositionMsg rxdata)
     {
+        Color[] labels = { Color.blue, Color.red, Color.yellow };
         if (ballMarker == null)
         {
             return;
@@ -28,8 +30,12 @@ public class RansacSubscriber : MonoBehaviour
 
         float grid_width = 800F;
         float grid_height = 800F;
+
+        GameObject newBall = Instantiate(ballPrefab, ballMarker);
         
-        RectTransform ballRect = ballMarker.GetComponent<RectTransform>();
+        Image ballImage = newBall.GetComponent<Image>();
+        ballImage.color = labels[rxdata.class_id];
+        RectTransform ballRect = newBall.GetComponent<RectTransform>();
         if (ballRect == null) return;
 
         float posX = (float)rxdata.position.x * grid_width / 2;
