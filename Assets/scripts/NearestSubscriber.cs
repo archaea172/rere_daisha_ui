@@ -12,6 +12,7 @@ public class RansacSubscriber : MonoBehaviour
     void Start()
     {
         ROSConnection.GetOrCreateInstance().Subscribe<BallPositionMsg>("/nearest_ball_position", Callback);
+        ballMarker?.SetActive(false);
     }
     void Callback(BallPositionMsg rxdata)
     {
