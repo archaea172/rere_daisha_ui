@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 160067533}
   - component: {fileID: 160067532}
   m_Layer: 5
-  m_Name: ransacgrid
+  m_Name: nearestgrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 1020542265}
   - component: {fileID: 1020542264}
   m_Layer: 5
-  m_Name: RansacText
+  m_Name: NearestText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ransac
+  m_text: Nearest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
