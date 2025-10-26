@@ -17,15 +17,6 @@ public class RansacSubscriber : MonoBehaviour
     void Callback(BallPositionMsg rxdata)
     {
         Color[] labels = { Color.blue, Color.red, Color.yellow };
-        if (canvasRectTransform == null)
-        {
-            return;
-        }
-
-        if (!canvasRectTransform.gameObject.activeSelf)
-        {
-            canvasRectTransform.gameObject.SetActive(true);
-        }
 
         float grid_width = 800F;
         float grid_height = 800F;
