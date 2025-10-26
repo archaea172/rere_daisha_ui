@@ -16,29 +16,31 @@ public class RansacSubscriber : MonoBehaviour
     }
     void Callback(BallPositionMsg rxdata)
     {
+        if (ballMarker == null)
+        {
+            return;
+        }
+
+        if (!ballMarker.activeSelf)
+        {
+            ballMarker.SetActive(true);
+        }
+
         float grid_weight = 800F;
         float grid_height = 800F;
 
-        foreach (var point in activePoints)
-        {
-            Destroy(point);
-        }
-        activePoints.Clear();
+        GameObject newBall = Instantiate(ballPrefab, canvasRectTransform);
 
-        foreach (var ball in rxdata.points)
-        {
-            GameObject newBall = Instantiate(ballPrefab, canvasRectTransform);
+        Image ballImage = newBall.GetComponent<Image>();
+        ballImage.color = Color.black;
+        RectTransform ballRect = newBall.GetComponent<RectTransform>();
+        float posX = (float)ball.x * grid_weight / 2;
+        float posY = (float)ball.y * grid_height / 2;
 
-            Image ballImage = newBall.GetComponent<Image>();
-            ballImage.color = Color.black;
-            RectTransform ballRect = newBall.GetComponent<RectTransform>();
-            float posX = (float)ball.x * grid_weight / 2;
-            float posY = (float)ball.y * grid_height / 2;
-
-            float CenterX = grid_weight / 2;
-            float CenterY = grid_height / 2;
-            ballRect.anchoredPosition = new Vector2(posX + CenterX, posY + CenterY);
-            activePoints.Add(newBall);
-        }
+        float CenterX = grid_weight / 2;
+        float CenterY = grid_height / 2;
+        ballRect.anchoredPosition = new Vector2(posX + CenterX, posY + CenterY);
+        activePoints.Add(newBall);
+        
     }
 }
