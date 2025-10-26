@@ -28,19 +28,15 @@ public class RansacSubscriber : MonoBehaviour
 
         float grid_weight = 800F;
         float grid_height = 800F;
-
-        GameObject newBall = Instantiate(ballPrefab, canvasRectTransform);
-
-        Image ballImage = newBall.GetComponent<Image>();
-        ballImage.color = Color.black;
-        RectTransform ballRect = newBall.GetComponent<RectTransform>();
-        float posX = (float)ball.x * grid_weight / 2;
-        float posY = (float)ball.y * grid_height / 2;
-
-        float CenterX = grid_weight / 2;
-        float CenterY = grid_height / 2;
-        ballRect.anchoredPosition = new Vector2(posX + CenterX, posY + CenterY);
-        activePoints.Add(newBall);
         
+        RectTransform ballRect = ballMarker.GetComponent<RectTransform>();
+        if (ballRect == null) return;
+
+        float posX = (float)rxdata.position.x * grid_width / 2;
+        float posY = (float)rxdata.position.y * grid_height / 2;
+
+        float centerX = grid_width / 2;
+        float centerY = grid_height / 2;
+        ballRect.anchoredPosition = new Vector2(posX + centerX, posY + centerY);
     }
 }
