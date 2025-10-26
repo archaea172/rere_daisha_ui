@@ -12,7 +12,7 @@ public class RansacSubscriber : MonoBehaviour
     void Start()
     {
         ROSConnection.GetOrCreateInstance().Subscribe<BallPositionMsg>("/nearest_ball_position", Callback);
-        ballMarker?.SetActive(false);
+        ballMarker?.gameObject.SetActive(false);
     }
     void Callback(BallPositionMsg rxdata)
     {
@@ -21,12 +21,12 @@ public class RansacSubscriber : MonoBehaviour
             return;
         }
 
-        if (!ballMarker.activeSelf)
+        if (!ballMarker.gameObject.activeSelf)
         {
-            ballMarker.SetActive(true);
+            ballMarker.gameObject.SetActive(true);
         }
 
-        float grid_weight = 800F;
+        float grid_width = 800F;
         float grid_height = 800F;
         
         RectTransform ballRect = ballMarker.GetComponent<RectTransform>();

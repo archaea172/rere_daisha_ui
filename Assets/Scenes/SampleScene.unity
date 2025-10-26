@@ -369,8 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe7f8465bd798cc8b4eb265746a95bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 8781010012977062404, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
-  canvasRectTransform: {fileID: 160067531}
+  ballMarker: {fileID: 4049609163348411228, guid: ed7beebbef72e370cb9270b0eb1c23e5, type: 3}
 --- !u!1 &353333392
 GameObject:
   m_ObjectHideFlags: 0
