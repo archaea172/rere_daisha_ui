@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class RansacSubscriber : MonoBehaviour
 {
-    public RectTransform canvasRectTransform;
+    public RectTransform ballMarker;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ROSConnection.GetOrCreateInstance().Subscribe<BallPositionMsg>("/nearest_ball_position", Callback);
     }
-    void Callback(PointCloudMsg rxdata)
+    void Callback(BallPositionMsg rxdata)
     {
         float grid_weight = 800F;
         float grid_height = 800F;
