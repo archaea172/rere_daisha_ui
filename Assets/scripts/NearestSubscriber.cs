@@ -8,30 +8,29 @@ using UnityEngine.UI;
 public class RansacSubscriber : MonoBehaviour
 {
     public GameObject ballPrefab;
-    public RectTransform ballMarker;
+    public RectTransform canvasRectTransform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ROSConnection.GetOrCreateInstance().Subscribe<BallPositionMsg>("/nearest_ball_position", Callback);
-        ballMarker?.gameObject.SetActive(false);
     }
     void Callback(BallPositionMsg rxdata)
     {
         Color[] labels = { Color.blue, Color.red, Color.yellow };
-        if (ballMarker == null)
+        if (canvasRectTransform == null)
         {
             return;
         }
 
-        if (!ballMarker.gameObject.activeSelf)
+        if (!canvasRectTransform.gameObject.activeSelf)
         {
-            ballMarker.gameObject.SetActive(true);
+            canvasRectTransform.gameObject.SetActive(true);
         }
 
         float grid_width = 800F;
         float grid_height = 800F;
 
-        GameObject newBall = Instantiate(ballPrefab, ballMarker);
+        GameObject newBall = Instantiate(ballPrefab, canvasRectTransform);
         
         Image ballImage = newBall.GetComponent<Image>();
         ballImage.color = labels[rxdata.class_id];
