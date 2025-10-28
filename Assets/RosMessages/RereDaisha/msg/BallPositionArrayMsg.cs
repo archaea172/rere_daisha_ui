@@ -13,15 +13,18 @@ namespace RosMessageTypes.RereDaisha
         public const string k_RosMessageName = "rere_daisha_msgs/BallPositionArray";
         public override string RosMessageName => k_RosMessageName;
 
+        public Std.HeaderMsg header;
         public BallPositionMsg[] balls;
 
         public BallPositionArrayMsg()
         {
+            this.header = new Std.HeaderMsg();
             this.balls = new BallPositionMsg[0];
         }
 
-        public BallPositionArrayMsg(BallPositionMsg[] balls)
+        public BallPositionArrayMsg(Std.HeaderMsg header, BallPositionMsg[] balls)
         {
+            this.header = header;
             this.balls = balls;
         }
 
@@ -29,11 +32,13 @@ namespace RosMessageTypes.RereDaisha
 
         private BallPositionArrayMsg(MessageDeserializer deserializer)
         {
+            this.header = Std.HeaderMsg.Deserialize(deserializer);
             deserializer.Read(out this.balls, BallPositionMsg.Deserialize, deserializer.ReadLength());
         }
 
         public override void SerializeTo(MessageSerializer serializer)
         {
+            serializer.Write(this.header);
             serializer.WriteLength(this.balls);
             serializer.Write(this.balls);
         }
@@ -41,6 +46,7 @@ namespace RosMessageTypes.RereDaisha
         public override string ToString()
         {
             return "BallPositionArrayMsg: " +
+            "\nheader: " + header.ToString() +
             "\nballs: " + System.String.Join(", ", balls.ToList());
         }
 
